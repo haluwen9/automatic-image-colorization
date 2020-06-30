@@ -1,0 +1,281 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#info {
+  text-align: center;
+  color: #3e3e3e;
+}
+
+#info .logo img {
+  width: 220px;
+}
+
+#info .title {
+  font-family: 'Bauhaus 93';
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 2px 2px #33333333;
+  
+  background: linear-gradient(to bottom right,#2f206a, #d33e64, #fcf87a);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+
+#upload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1em 0;
+  flex-grow: 1;
+  width: 40%;
+  min-width: 500px;
+}
+
+#upload .dropzone {
+  cursor: pointer;
+
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border: 0.3em dashed #3e3e3e3e;
+  border-radius: 15px;
+  width: 100%;
+  max-height: 300px;
+  box-shadow: 0px 0px 10px 1px #3e3e3e3e;
+
+  color: #3e3e3e3e;
+}
+#upload .dropzone * {
+  pointer-events: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+#upload .dropzone #upload-icon {
+  fill: #3e3e3e3e;
+  width: 64px;
+  -webkit-filter: drop-shadow(0px 0px 5px #3e3e3e);
+  filter: drop-shadow(0px 0px 5px #3e3e3e);
+}
+
+#upload .dropzone .text {
+  font-family: 'Bauhaus 93';
+  font-size: 2.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 12px #3e3e3e3e;
+}
+
+#upload .dropzone #upload-file {
+  display: none;
+}
+
+#upload .dropzone.dragover {
+  border-color: #3e3e3e;
+  color: #3e3e3eff;  
+}
+#upload .dropzone.dragover #upload-icon {
+  fill: #3e3e3eff;
+}
+
+#result {
+  /* Hidden by default */
+  display: none; 
+  /* display: flex; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.result-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fefefe;
+  padding: 15px;
+  border: 2px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  height: 90%;
+
+  box-shadow: 2px 1px 10px 3px #3e3e3e3e;
+}
+
+.result-title {
+  flex-grow: 0;
+  flex-basis: 53px;
+  width: 100%;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Bauhaus 93";
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #3e3e3e;
+}
+
+/* The Close Button */
+.result-close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.result-close:hover,
+.result-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.result-showcase {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  
+  position: relative;
+  width: 100%;
+  min-height: 0px;
+  max-height: 84%;
+  z-index: 999;
+}
+
+.result-showcase .wrapper {
+  height: auto;
+  max-height: 100%;
+  padding: 16px 16px 0;
+  margin: 0 10px;
+  text-align: center;
+
+  justify-content: space-between;
+
+  box-shadow: 2px 2px 12px 0px #aaa;
+}
+
+.result-showcase .result-image {
+  /* align-self: stretch; */
+  display: flex;
+  min-height: 0px;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  flex-grow: 1;
+  border: 1px solid #aaa;
+  overflow: hidden;
+}
+
+.result-image img {
+  align-self: stretch;
+  display: block;
+  max-width: 100%;
+  max-height: calc(100% - 1rem);
+}
+
+.result-showcase .result-grayscale img {
+  filter: grayscale();
+}
+
+.result-showcase .label {
+  flex-grow: 0;
+  flex-basis: 0.5rem;
+  /* height: 0.5rem; */
+  padding-bottom: 15px;
+  font-family: "Bauhaus 93";
+  font-weight: bold;
+  color: #3e3e3e;
+}
+
+.result-status {
+  z-index: 998;
+  flex-grow: 0;
+  width: 100%;
+  flex-basis: 53px;
+
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Bauhaus 93";
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.result-status .processing {
+  color: #4e4cfbeb;
+  line-height: 1;
+  vertical-align: middle;
+}
+.loader {
+  display: inline-block;
+  vertical-align: baseline;
+  box-sizing: content-box;
+  border: 5px solid #3a3a3a3a;
+  border-top: 5px solid #4e4cfbeb;
+  border-radius: 100%;
+  height: 2rem;
+  width: 2rem;
+  margin: 0 10px;
+  animation: spin 1s ease-out infinite;
+  color: transparent;
+}
+
+.result-status .success {
+  color: #36ff3ceb;
+}
+
+#copyright {
+  color: #272727c2;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
