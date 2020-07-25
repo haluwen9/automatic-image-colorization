@@ -1,2 +1,3 @@
-# automatic-image-colorization
-Automatic image colorization from grayscale image using pre-trained deep neural network model.
+# Image Colorization using Convolutional Autoencoder.
+
+[Link to notebook](https://colab.research.google.com/drive/1kLwnS75yePwuAAefR3XX8VJ5aM1IBoLl?usp=sharing)
